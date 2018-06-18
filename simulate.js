@@ -14,11 +14,11 @@ module.exports = (rounds, names) => {
 	let output;
 	R.range(0, rounds).forEach((i) => {
 		samples = [...samples, sample(names)];
-		const bins = R.groupBy(R.identity, samples);
-		output = names.map((name) => {
-			const bar = '◼︎'.repeat((bins[name] || []).length);
-			return `${name}${makePadding(longestName, name)}${bar}`;
-		});
+	});
+	const bins = R.groupBy(R.identity, samples);
+	output = names.map((name) => {
+		const bar = '◼︎'.repeat((bins[name] || []).length);
+		return `${name}${makePadding(longestName, name)}${bar}`;
 	});
 	return output.join('\n');
 };
