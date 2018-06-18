@@ -13,8 +13,11 @@ lauren ◼︎◼︎◼︎◼︎◼︎
 
 
 ## run as: slack app 
-- start server: `[ngrok](https://ngrok.com/) http 3030` (configure URL in app ↓) + `node server.js`
-    - TODO: run on remote server
+- start server: 
+    - `node server.js`
+    - `ngrok http 3030` (configure URL in app ↓)
+        - uses [ngrok](https://ngrok.com/)
+        - TODO: run on remote server
 - configure app / slash command: https://api.slack.com/apps/AB67D16JV/slash-commands?saved=1
 
 
