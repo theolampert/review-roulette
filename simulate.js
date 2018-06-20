@@ -9,14 +9,15 @@ const makePadding = (longestName, name) => {
 
 
 module.exports = (rounds, names) => {
-	const longestName = R.last(R.sortBy(R.length)(names));
+	const uniqueNames = R.uniq(names);
+	const longestName = R.last(R.sortBy(R.length)(uniqueNames));
 	let samples = [];
 	let output;
 	R.range(0, rounds).forEach((i) => {
-		samples = [...samples, sample(names)];
+		samples = [...samples, sample(uniqueNames)];
 	});
 	const bins = R.groupBy(R.identity, samples);
-	output = names.map((name) => {
+	output = uniqueNames.map((name) => {
 		const bar = '◼︎'.repeat((bins[name] || []).length);
 		return `${name}${makePadding(longestName, name)}${bar}`;
 	});
