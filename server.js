@@ -27,7 +27,7 @@ app.post(
 	}
 );
 
-const port = 3030;
+const port = process.env.PORT || 3030;
 const server = app.listen(port, (err) => {
 	if (err) { throw err; }
 	console.log(`http://localhost:${port}/`);
